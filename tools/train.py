@@ -124,7 +124,7 @@ def main():
     if args.autoscale_lr:
         # apply the linear scaling rule (https://arxiv.org/abs/1706.02677)
         cfg.optimizer['lr'] = cfg.optimizer['lr'] * len(cfg.gpu_ids) / 8
-
+        # print(f"Applying LR Scaling Rule to: {cfg.optimizer['lr']}")
     # init distributed env first, since logger depends on the dist info.
     if args.launcher == 'none':
         distributed = False
@@ -176,7 +176,6 @@ def main():
     cfg.seed = args.seed
     meta['seed'] = args.seed
     meta['exp_name'] = osp.basename(args.config)
-
     model = build_model(
         cfg.model,
         train_cfg=cfg.get('train_cfg'),
