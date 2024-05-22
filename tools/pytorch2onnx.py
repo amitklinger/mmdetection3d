@@ -1,4 +1,4 @@
-# Copyright (c) OpenMMLab. All rights reserved.
+# Copyright (c) Hailo. All rights reserved.
 import argparse
 import torch
 from torch import nn
@@ -150,5 +150,5 @@ def load_pretrained_weights_soft(model, checkpoint):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(epilog='Example: CUDA_VISIBLE_DEVICES=0 python tools/pytorch2onnx.py configs/fcn/fcn8_r18_hailo.py --checkpoint work_dirs/fcn8_r18_hailo_iterbased/epoch_1.pth --out_name my_fcn_model.onnx --shape 608 800')
+    parser = argparse.ArgumentParser(epilog='Example: CUDA_VISIBLE_DEVICES=99 python tools/pytorch2onnx.py configs/fcos3d/fcos3d_repvgg_h2_fpn_gn-head_2x8_1x_nus-mono3d.py --checkpoint work_dirs/fcos3d_repvgg_h2_8gpus/latest.pth --out_name fcos3d_repvgg_h2.onnx')
     main()
